@@ -68,8 +68,6 @@ class Commons(object):
         val = css.value_of_css_property(value)
         return val
 
-
-
     # LOGIN LOCATORS #
 
     LOGIN = (U.By.CSS_SELECTOR, '.input_relative > input:nth-child(1)')
@@ -89,6 +87,196 @@ class Commons(object):
     ORDERS = (U.By.CSS_SELECTOR, 'a.menu_menuItem:nth-child(5)')
     PAGE_SETTING = (U.By.CSS_SELECTOR, '.fa-ellipsis-v')
     PAGE_SEARCH = (U.By.CSS_SELECTOR, '.input_iconInput > input:nth-child(2)')
+
+    # USERS LOCATORS #
+
+    SEARCH_BAR = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
+                                     'div.table_topRow > span > span > div > input')
+    USER_FIRST_NAME = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.table_table > table > tbody > '
+                                          'tr:nth-child(1) > td:nth-child(1)')
+    USER_LAST_NAME = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                         'div > div.table_tableScroll > div.table_table > table > tbody > '
+                                         'tr:nth-child(1) > td:nth-child(2)')
+    USER_EMAIL = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
+                                     'div.table_tableScroll > div.table_table > table > tbody > tr:nth-child(1) > '
+                                     'td:nth-child(3)')
+    USER_PHONE_NUMBER = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                            'div > div.table_tableScroll > div.table_table > table > tbody > '
+                                            'tr:nth-child(1) > td:nth-child(4)')
+    USER_ADDRESS = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
+                                       '> div.table_tableScroll > div.table_table > table > tbody > tr:nth-child(1) >'
+                                       ' td:nth-child(6)')
+    USER_MARKETING_LIST = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children '
+                                              '> div > div.table_tableScroll > div.table_table > table > tbody > tr >'
+                                              ' td:nth-child(7)')
+    USER_ETRADO_APPROVED = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > '
+                                               'div.pages_children > div > div.table_tableScroll > div.table_table > '
+                                               'table > tbody > tr > td:nth-child(8)')
+    USER_ACTIVE = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
+                                      'div.table_tableScroll > div.table_table > table > tbody > tr > td:nth-child(9)')
+    USER_LAST_SEEN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                         'div > div.table_tableScroll > div.table_table > table > tbody > tr > '
+                                         'td:nth-child(10)')
+    USER_CREATED_AT = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.table_table > table > tbody > tr > '
+                                          'td:nth-child(11)')
+    FIRST_NAME_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                            'div > div.table_tableScroll > div.table_table > table > thead > tr > '
+                                            'th:nth-child(1) > span')
+    LAST_NAME_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                           'div > div.table_tableScroll > div.table_table > table > thead > tr > '
+                                           'th:nth-child(2) > span')
+    EMAIL_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
+                                       '> div.table_tableScroll > div.table_table > table > thead > tr > '
+                                       'th:nth-child(3) > span')
+    PHONE_NUMBER_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children '
+                                              '> div > div.table_tableScroll > div.table_table > table > thead > tr >'
+                                              ' th:nth-child(4) > span')
+    ADDRESS_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                         'div > div.table_tableScroll > div.table_table > table > thead > tr > '
+                                         'th:nth-child(6) > span')
+    MARKETING_LIST_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > '
+                                                'div.pages_children > div > div.table_tableScroll > div.table_table > '
+                                                'table > thead > tr > th:nth-child(7) > span')
+    ETRADO_APPROVED_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > '
+                                                 'div.pages_children > div > div.table_tableScroll > div.table_table '
+                                                 '> table > thead > tr > th:nth-child(8) > span')
+    ACTIVE_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
+                                        '> div.table_tableScroll > div.table_table > table > thead > tr > '
+                                        'th:nth-child(9) > span')
+    LAST_SEEN_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                           'div > div.table_tableScroll > div.table_table > table > thead > tr > '
+                                           'th:nth-child(10) > span')
+    CREATED_AT_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                            'div > div.table_tableScroll > div.table_table > table > thead > tr > '
+                                            'th:nth-child(11) > span')
+    page_number_1 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
+                                        '> div.table_tableScroll > div.paging_paging > div.paging_pagination > '
+                                        'span.paging_paginationNum.paging_active')
+    page_number_2 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
+                                        '> div.table_tableScroll > div.paging_paging > div.paging_pagination > '
+                                        'span:nth-child(2)')
+    page_number_3 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
+                                        '> div.table_tableScroll > div.paging_paging > div.paging_pagination > '
+                                        'span:nth-child(3)')
+    one_page_forwards = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                            'div > div.table_tableScroll > div.paging_paging > div.paging_pagination '
+                                            '> span:nth-child(6) > i')
+    last_page = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
+                                    'div.table_tableScroll > div.paging_paging > div.paging_pagination > '
+                                    'span:nth-child(7) > i')
+    one_page_backwards = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children '
+                                             '> div > div.table_tableScroll > div.paging_paging > '
+                                             'div.paging_pagination > span:nth-child(2) > i')
+    first_page = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
+                                     'div.table_tableScroll > div.paging_paging > div.paging_pagination > '
+                                     'span:nth-child(1) > i')
+    display_amount = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                         'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                         '> span.input_input > div > input')
+    credit_score = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                       'div.index_scoreContainer > div')
+    id_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > form > '
+                                 'div.form_items > div.form_formItem.undefined.undefined.formItem_userId > span > div'
+                                 ' > input')
+    first_name_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                         'form > div.form_items > '
+                                         'div.form_formItem.undefined.undefined.formItem_firstName > span > div > '
+                                         'input')
+    last_name_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                        'form > div.form_items > '
+                                        'div.form_formItem.undefined.undefined.formItem_lastName > span > div > input')
+    email_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > form '
+                                    '> div.form_items > div.form_formItem.undefined.undefined.formItem_email > span >'
+                                    ' div > input')
+    phone_number_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div '
+                                           '> form > div.form_items > '
+                                           'div.form_formItem.undefined.undefined.formItem_phone > span > div > input')
+    additional_phone_number_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > '
+                                                      'div > div > form > div.form_items > '
+                                                      'div.form_formItem.undefined.undefined.formItem_phone2 > span > '
+                                                      'div > input')
+    city_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > form > '
+                                   'div.form_items > div.form_formItem.form_group.undefined.formItem_address > '
+                                   'div.form_formGroup > div.form_formItem.undefined.undefined.formItem_city > span > '
+                                   'div > input')
+    street_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > form '
+                                     '> div.form_items > div.form_formItem.form_group.undefined.formItem_address > '
+                                     'div.form_formGroup > div.form_formItem.undefined.undefined.formItem_street > '
+                                     'span > div > input')
+    building_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                       'form > div.form_items > '
+                                       'div.form_formItem.form_group.undefined.formItem_address > div.form_formGroup '
+                                       '> div.form_formItem.undefined.undefined.formItem_building > span > div > input')
+    apartment_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                        'form > div.form_items > '
+                                        'div.form_formItem.form_group.undefined.formItem_address > div.form_formGroup '
+                                        '> div.form_formItem.undefined.undefined.formItem_apartment > span > div > '
+                                        'input')
+    floor_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > form '
+                                    '> div.form_items > div.form_formItem.form_group.undefined.formItem_address > '
+                                    'div.form_formGroup > div.form_formItem.undefined.undefined.formItem_floor > span '
+                                    '> div > input')
+    comment_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                      'form > div.form_items > '
+                                      'div.form_formItem.form_group.undefined.formItem_address > div.form_formGroup > '
+                                      'div.form_formItem.undefined.undefined.formItem_comment > textarea')
+    account_owner_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div '
+                                            '> form > div.form_items > '
+                                            'div.form_formItem.form_group.undefined.formItem_paymentBillInfo > '
+                                            'div.form_formGroup > '
+                                            'div.form_formItem.undefined.undefined.formItem_acountOwner > span > div '
+                                            '> input')
+    number_account_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > '
+                                             'div > form > div.form_items > '
+                                             'div.form_formItem.form_group.undefined.formItem_paymentBillInfo > '
+                                             'div.form_formGroup > '
+                                             'div.form_formItem.undefined.undefined.formItem_numberAcount > span > '
+                                             'div > input')
+    number_branch_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div '
+                                            '> form > div.form_items > '
+                                            'div.form_formItem.form_group.undefined.formItem_paymentBillInfo > '
+                                            'div.form_formGroup > '
+                                            'div.form_formItem.undefined.undefined.formItem_numberBranch > span > div '
+                                            '> input')
+    bank_name_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                        'form > div.form_items > '
+                                        'div.form_formItem.form_group.undefined.formItem_paymentBillInfo > '
+                                        'div.form_formGroup > div.form_formItem.undefined.undefined.formItem_bankName '
+                                        '> span > div > input')
+    credit_score_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div '
+                                           '> form > div.form_items > '
+                                           'div.form_formItem.undefined.undefined.formItem_creditScore > span > div > '
+                                           'input')
+    balance_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                      'form > div.form_items > '
+                                      'div.form_formItem.form_group.undefined.formItem_etradoBalance > '
+                                      'div.form_formGroup > div.form_formItem.undefined.undefined.formItem_balance > '
+                                      'span > div > input')
+    income_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > form '
+                                     '> div.form_items > '
+                                     'div.form_formItem.form_group.undefined.formItem_etradoBalance > '
+                                     'div.form_formGroup > div.form_formItem.undefined.undefined.formItem_income > '
+                                     'span > div > input')
+    outcome_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                      'form > div.form_items > '
+                                      'div.form_formItem.form_group.undefined.formItem_etradoBalance > '
+                                      'div.form_formGroup > div.form_formItem.undefined.undefined.formItem_outcome > '
+                                      'span > div > input')
+    marketing_list_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > '
+                                                'div > form > div.form_items > '
+                                                'div.form_formItem.undefined.undefined.formItem_marketingList > span > '
+                                                'span')
+    Takanon_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                         'form > div.form_items > '
+                                         'div.form_formItem.undefined.undefined.formItem_takanon > span > span')
+    ETrado_approved_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div '
+                                                 '> div > form > div.form_items > '
+                                                 'div.form_formItem.undefined.undefined.formItem_eTradoApproved > '
+                                                 'span > span')
+    update_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                        'form > input')
 
     # ADVANCED FUNCTIONS #
 
