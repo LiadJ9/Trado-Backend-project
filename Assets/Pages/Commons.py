@@ -293,9 +293,21 @@ class Commons(object):
     CITY = 'Sunrise, Arizona'
     STREET = 'air base'
     BUILDING = '3'
+    APARTMENT = '0'
+    FLOOR = '0'
+    COMMENT = 'talk with the osiris for more details'
     CREDIT_SCORE = '600'
     LAST_SEEN = '07/04/23, 17:30'
     CREATED_AT = '22/03/23, 09:55'
+    ID = '111111118'
+    ACCOUNT_OWNER = 'Khoth Voor'
+    NUMBER_ACCOUNT = '1'
+    NUMBER_BRANCH = '1'
+    BANK_NAME = 'Raythe Reign Inc.'
+    BALANCE = '48900000000'
+    INCOME = '0'
+    OUTCOME = '0'
+
 
     # ADVANCED FUNCTIONS #
 
