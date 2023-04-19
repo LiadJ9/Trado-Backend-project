@@ -68,6 +68,12 @@ class Commons(object):
         val = css.value_of_css_property(value)
         return val
 
+    def get_element_color(self, locator):
+        element = self.driver.find_element(*locator)
+        colour_rgb = element.getCssValue("color")
+        colour_hex = U.Color.from_string(colour_rgb).hex
+        return colour_hex
+
     # LOGIN LOCATORS #
 
     LOGIN = (U.By.CSS_SELECTOR, '.input_relative > input:nth-child(1)')

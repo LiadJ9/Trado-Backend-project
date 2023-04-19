@@ -12,6 +12,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains as ac
 from selenium.webdriver.common.keys import Keys as keys
 from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.support.color import Color
 from time import sleep
 import string
 import random
