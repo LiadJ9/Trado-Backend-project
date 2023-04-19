@@ -284,6 +284,19 @@ class Commons(object):
     update_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
                                         'form > input')
 
+    # USER DETAILS #
+
+    FIRST_NAME = 'Jace'
+    LAST_NAME = 'Parker'
+    EMAIL = 'gocew82872@lieboe.com'
+    PHONE = '0552992042'
+    CITY = 'Sunrise, Arizona'
+    STREET = 'air base'
+    BUILDING = '3'
+    CREDIT_SCORE = '600'
+    LAST_SEEN = '07/04/23, 17:30'
+    CREATED_AT = '22/03/23, 09:55'
+
     # ADVANCED FUNCTIONS #
 
 
