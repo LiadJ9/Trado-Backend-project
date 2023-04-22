@@ -6,12 +6,12 @@ class UsersPage(Commons):
     def search_first_name_to_search(self):
         search = Commons(self.driver).wait_for(Commons.SEARCH_BAR)
         search.send_keys(Commons.FIRST_NAME)
-        search.send_keys(Keys.ENTER)
+        search.send_keys(U.keys.ENTER)
 
     def search_partial_name_to_search(self):
         search = Commons(self.driver).wait_for(Commons.SEARCH_BAR)
-        search.send_keys('jac')
-        search.send_keys(Keys.ENTER)
+        search.send_keys('par')
+        search.send_keys(U.keys.ENTER)
 
     def insert_first_name_into_user_details(self):
         search = Commons(self.driver).wait_for(Commons.first_name_box)
@@ -92,5 +92,21 @@ class UsersPage(Commons):
     def insert_outcome_into_user_details(self):
         search = Commons(self.driver).wait_for(Commons.outcome_box)
         search.send_keys(Commons.OUTCOME)
+
+    def scroll_sidebar_down(self):
+        U.ac(self.driver).move_to_element(Commons(self.driver).wait_for(Commons.SCROLL_MENU)).click()\
+            .send_keys(U.keys.ARROW_DOWN*25).perform()
+
+    def scroll_user_details_down_once(self):
+        U.ac(self.driver).move_to_element(Commons(self.driver).wait_for(Commons.user_details)).click()\
+            .send_keys(U.keys.ARROW_DOWN*17).perform()
+
+    def scroll_user_details_down_twice(self):
+        U.ac(self.driver).move_to_element(Commons(self.driver).wait_for(Commons.user_details)).click()\
+            .send_keys(U.keys.ARROW_DOWN*34).perform()
+
+    def scroll_table_left(self):
+        U.ac(self.driver).move_to_element(Commons(self.driver).wait_for(Commons.USER_TABLE)).click()\
+            .send_keys(U.keys.ARROW_LEFT*8).perform()
 
     pass
