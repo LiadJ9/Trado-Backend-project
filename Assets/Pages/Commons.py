@@ -58,6 +58,10 @@ class Commons(object):
         locator.click()
         locator.send_keys(U.keys.CLEAR)
 
+    def clear_department_name(self, locator):
+        locator = self.driver.find_element(*locator)
+        locator.clear()
+
     def get_class(self, locator):
         locator = self.driver.find_element(*locator)
         class_name = locator.get_attribute('class')

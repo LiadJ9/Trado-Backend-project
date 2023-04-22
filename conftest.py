@@ -1,12 +1,11 @@
 from Assets.Pages.Backend_utils import pytest
 import Assets.Pages.Backend_utils as U
-from Assets.Pages.Commons import Commons
 
 
 @pytest.fixture
 def selection():
     # F -- FIREFOX C -- CHROME E -- EDGE
-    return 'F'
+    return 'C'
 
 
 @pytest.fixture
