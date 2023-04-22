@@ -69,10 +69,19 @@ class Commons(object):
         return val
 
     def get_element_color(self, locator):
-        element = self.driver.find_element(*locator)
-        colour_rgb = element.getCssValue("color")
+        colour_rgb = Commons(self.driver).get_css(locator, 'background')
         colour_hex = U.Color.from_string(colour_rgb).hex
         return colour_hex
+
+    def get_default_value(self, locator):
+        element = self.driver.find_element(*locator)
+        default_value = element.get_attribute('defaultValue')
+        return default_value
+
+    def get_inner_html(self, locator):
+        element = self.driver.find_element(*locator)
+        default_value = element.get_attribute('innerHTML')
+        return default_value
 
     # LOGIN LOCATORS #
 
@@ -96,8 +105,13 @@ class Commons(object):
 
     # USERS LOCATORS #
 
+    SCROLL_MENU = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > div > nav > div.menu_scroll')
+    USERS_WINDOW_BUTTON = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > div > nav > '
+                                              'div.menu_scroll > a:nth-child(27)')
     SEARCH_BAR = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
                                      'div.table_topRow > span > span > div > input')
+    USER_TABLE = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
+                                     'div.table_tableScroll > div.table_table')
     USER_FIRST_NAME = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
                                           'div > div.table_tableScroll > div.table_table > table > tbody > '
                                           'tr:nth-child(1) > td:nth-child(1)')
@@ -143,8 +157,8 @@ class Commons(object):
                                          'div > div.table_tableScroll > div.table_table > table > thead > tr > '
                                          'th:nth-child(6) > span')
     MARKETING_LIST_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > '
-                                                'div.pages_children > div > div.table_tableScroll > div.table_table > '
-                                                'table > thead > tr > th:nth-child(7) > span')
+                                                'div.pages_children > div > div.table_tableScroll > div.table_table >'
+                                                ' table > thead > tr > th:nth-child(7)')
     ETRADO_APPROVED_COLUMN = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > '
                                                  'div.pages_children > div > div.table_tableScroll > div.table_table '
                                                  '> table > thead > tr > th:nth-child(8) > span')
@@ -159,7 +173,7 @@ class Commons(object):
                                             'th:nth-child(11) > span')
     page_number_1 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
                                         '> div.table_tableScroll > div.paging_paging > div.paging_pagination > '
-                                        'span.paging_paginationNum.paging_active')
+                                        'span:nth-child(3)')
     page_number_2 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div '
                                         '> div.table_tableScroll > div.paging_paging > div.paging_pagination > '
                                         'span:nth-child(2)')
@@ -168,10 +182,10 @@ class Commons(object):
                                         'span:nth-child(3)')
     one_page_forwards = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
                                             'div > div.table_tableScroll > div.paging_paging > div.paging_pagination '
-                                            '> span:nth-child(6) > i')
+                                            '> span:nth-child(4) > i')
     last_page = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > div > '
                                     'div.table_tableScroll > div.paging_paging > div.paging_pagination > '
-                                    'span:nth-child(7) > i')
+                                    'span:nth-child(5) > i')
     one_page_backwards = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children '
                                              '> div > div.table_tableScroll > div.paging_paging > '
                                              'div.paging_pagination > span:nth-child(2) > i')
@@ -181,8 +195,38 @@ class Commons(object):
     display_amount = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
                                          '> span.input_input > div > input')
+    amount_option_1 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                          '> span.input_input > div.input_relative > div > div:nth-child(1)')
+    amount_option_2 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                          '> span.input_input > div.input_relative > div > div:nth-child(2)')
+    amount_option_3 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                          '> span.input_input > div.input_relative > div > div:nth-child(3)')
+    amount_option_4 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                          '> span.input_input > div.input_relative > div > div:nth-child(4)')
+    amount_option_5 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                          '> span.input_input > div.input_relative > div > div:nth-child(5)')
+    amount_option_6 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                          '> span.input_input > div.input_relative > div > div:nth-child(6)')
+    amount_option_7 = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                          'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNum > div '
+                                          '> span.input_input > div.input_relative > div > div:nth-child(7)')
+    rows_displayed = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children > '
+                                         'div > div.table_tableScroll > div.paging_paging > div.paging_rowsNumView')
+    all_rows_displayed = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.pages_pages > main > div.pages_children '
+                                             '> div > div.table_tableScroll > div.paging_paging > div:nth-child(2)')
+    user_details = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                       'form > div.form_items')
     credit_score = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
-                                       'div.index_scoreContainer > div')
+                                       'div.index_scoreContainer > div > span.index_scoreText')
+    picture_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
+                                      'form > div.form_items > div.form_formItem.undefined.undefined.formItem_image >'
+                                      ' div.fileInput_fileInput')
     id_box = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > form > '
                                  'div.form_items > div.form_formItem.undefined.undefined.formItem_userId > span > div'
                                  ' > input')
@@ -272,8 +316,8 @@ class Commons(object):
                                       'span > div > input')
     marketing_list_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > '
                                                 'div > form > div.form_items > '
-                                                'div.form_formItem.undefined.undefined.formItem_marketingList > span > '
-                                                'span')
+                                                'div.form_formItem.undefined.undefined.formItem_marketingList > span '
+                                                '> span')
     Takanon_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
                                          'form > div.form_items > '
                                          'div.form_formItem.undefined.undefined.formItem_takanon > span > span')
@@ -284,7 +328,7 @@ class Commons(object):
     update_button = (U.By.CSS_SELECTOR, '#root > div:nth-child(1) > div.modal_modalWrapper.modal_open > div > div > '
                                         'form > input')
 
-    # USER DETAILS #
+    # USERS VALUES #
 
     FIRST_NAME = 'Jace'
     LAST_NAME = 'Parker'
@@ -307,7 +351,9 @@ class Commons(object):
     BALANCE = '48900000000'
     INCOME = '0'
     OUTCOME = '0'
-
+    ON_COLOR = '#2f97ba'
+    OFF_COLOR = '#ffffff'
+    AMOUNT_OF_USERS = '1136'
 
     # ADVANCED FUNCTIONS #
 
